@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smooth Scroll - Clay Cauley</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+        </script>
+<SCRIPT>
+
+$(document).ready(function() {
+    $('.bottom').click(function() {
+        $('html, body').animate({
+            scrollTop: $(document).height()
+        }, 1500);
+        return false;
+    });
+
+    $('.middle').click(function() {
+        $('html, body').animate({
+            scrollTop: '2000px'
+        }, 1500);
+        return false;
+    });
+
+    $('.top').click(function() {
+        $('html, body').animate({
+            scrollTop: '0px'
+        }, 1500);
+        return false;
+    });
+});
+
+
+</SCRIPT>
+<STYLE>
+
+#gap{
+    height:4000px;   
+}
+a:link{
+    color: #000;
+    text-decoration: none;
+    font-family: Helvetica, Arial;
+    font-size: 18px;
+}
+a:hover{
+    border-bottom: 2px solid #000;
+}
+a:visited{
+    color: #000;
+    text-decoration: none;
+}
+
+h1.oops{
+    position:absolute;
+    top:2000px;   
+}
+
+h1{
+    color: #000;
+    text-decoration: none;
+    font-family: Helvetica, Arial;
+    font-size: 18px;
+}
+
+</STYLE>
+    </head>
+    <body>
+        <h1><a class="bottom" href="#">Wanna go to the bottom?</a></h1>
+        <h1><a class="middle" href="#">Wanna go to the middle?</a></h1>
+        <div id="gap">
+            <h1 class="oops">Hmmm...<a class="top" href="#">up</a> or <a class="bottom" href="#">down</a>?</h1>
+        </div>
+        <a class="top" href="#">Back up?</a>
+    </body>
+</html>

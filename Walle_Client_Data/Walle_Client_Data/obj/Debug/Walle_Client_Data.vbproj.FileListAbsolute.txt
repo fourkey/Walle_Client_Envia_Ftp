@@ -1,0 +1,11 @@
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.exe.config
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.exe
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.pdb
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.xml
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.vbprojResolveAssemblyReference.cache
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.Frm_Principal.resources
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.Resources.resources
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.vbproj.GenerateResource.Cache
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.exe
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.xml
+C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.pdb
