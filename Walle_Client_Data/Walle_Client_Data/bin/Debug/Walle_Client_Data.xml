@@ -22,5 +22,11 @@ Walle_Client_Data
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:Walle_Client_Data.Util.VerificaConexaoFtp">
+ <summary>
+ Verifica se existe conexão com o FTP
+ </summary>
+ <returns></returns>
+</member>
 </members>
 </doc>

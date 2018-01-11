@@ -3,10 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="CriptUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)">myclient</Value>
+      <Value Profile="(Default)">k1ElcLx79zu9PbsYaHTTmA==</Value>
     </Setting>
     <Setting Name="CriptPass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">$Tanqueviski69</Value>
+      <Value Profile="(Default)">g78RB48iJQweLl6LcCpscg==</Value>
+    </Setting>
+    <Setting Name="PathFtp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">hCBWnew/fV4EK0khXCThqkbcUsUx3DM3vT27GGh005g=</Value>
+    </Setting>
+    <Setting Name="KeyGetUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tWTlAEySXoI=</Value>
     </Setting>
   </Settings>
 </SettingsFile>

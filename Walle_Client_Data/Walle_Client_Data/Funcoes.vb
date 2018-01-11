@@ -7,6 +7,7 @@ Public Class Funcoes
 
     Dim textoCifrado As Byte()
     Dim sal() As Byte = {&H0, &H1, &H2, &H3, &H4, &H5, &H6, &H5, &H4, &H3, &H2, &H1, &H0}
+    Dim Pub As New Util
 
     Public Sub SubirArquivo()
 
@@ -26,7 +27,7 @@ Public Class Funcoes
 
             Passou = True
 
-            Caminho = "ftp://ftp.fourkey.com.br/Walle/Client/" & Frm_Principal.ClientFourkey & "/File/" & Frm_Principal.ListaDeArquivosNomes.Item(i)
+            Caminho = Frm_Principal.CaminhoFtp & "/Walle/Client/" & Frm_Principal.ClientFourkey & "/File/" & Frm_Principal.ListaDeArquivosNomes.Item(i)
 
             Try
 
@@ -87,7 +88,7 @@ Public Class Funcoes
 
             fluxoTexto.Close()
 
-            Caminho = "ftp://ftp.fourkey.com.br/Walle/Client/" & Frm_Principal.ClientFourkey & "/PCSEND/" _
+            Caminho = Frm_Principal.CaminhoFtp & "/Walle/Client/" & Frm_Principal.ClientFourkey & "/PCSEND/" _
                 & Frm_Principal.ClientCod & "_" & DataAgora.ToString("yyyy-MM-dd-HH-mm-ss") & ".txt"
 
             Try
@@ -198,9 +199,8 @@ Public Class Funcoes
 
             Catch ex As Exception
 
-                MsgBox("Walle: Atenção, você não tem permissão de gravação. Por favor entre em contato com os administadores do " _
-                       & "do sistema.")
 
+                Pub.Escreve_Log("WARNING - (Funcoes.LerPasta) Falha na criação da pasta \Pendentes em " & Pasta & ". Verificar liberção de acesso para leitura e gravação.")
                 Application.Exit()
 
             End Try
@@ -217,9 +217,7 @@ Public Class Funcoes
 
             Catch ex As Exception
 
-                MsgBox("Walle: Atenção, você não tem permissão de gravação. Por favor entre em contato com os administadores do " _
-                       & "do sistema.")
-
+                Pub.Escreve_Log("CATCH - (Funcoes.LerPasta) Falha na criação da pasta \Processados em " & Pasta & ". Verificar liberção de acesso para leitura e gravação.")
                 Application.Exit()
 
             End Try
@@ -283,7 +281,7 @@ Public Class Funcoes
 
     Public Function GetUserClient() As String
 
-        Dim chave As New Rfc2898DeriveBytes("yekruof", sal)
+        Dim chave As New Rfc2898DeriveBytes(Pub.Decifra(My.Settings.KeyGetUser), sal)
         Dim algoritmo = New RijndaelManaged()
         Dim fluxoTexto As IO.StreamReader
         Dim linhaTexto As String
@@ -325,8 +323,8 @@ Public Class Funcoes
 
         Else
 
-            MsgBox("Walle: Atenção alguns arquivos foram movidos ou modificados indevidamente, por favor entre em contato com o fornecedor.", vbExclamation)
 
+            Pub.Escreve_Log("WARNING - (Funcoes.GetUserClient) - Walle: Atenção alguns arquivos foram movidos ou modificados indevidamente, por favor entre em contato com o fornecedor.")
             Application.Exit()
 
         End If

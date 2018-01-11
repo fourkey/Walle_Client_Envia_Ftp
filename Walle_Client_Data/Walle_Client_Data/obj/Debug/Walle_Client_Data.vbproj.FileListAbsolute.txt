@@ -9,3 +9,17 @@ C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Clie
 C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.exe
 C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.xml
 C:\Users\gusta\Projetos\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.pdb
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.exe.config
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.exe
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.pdb
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\Walle_Client_Data.xml
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\FourkeyCripto.dll
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\bin\Debug\FourkeyCripto.pdb
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.vbprojResolveAssemblyReference.cache
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.Frm_Principal.resources
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.Resources.resources
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.vbproj.GenerateResource.Cache
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.vbproj.CoreCompileInputs.cache
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.exe
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.xml
+C:\Users\luizh\source\Walle_Client_Envia_Ftp\Walle_Client_Data\Walle_Client_Data\obj\Debug\Walle_Client_Data.pdb

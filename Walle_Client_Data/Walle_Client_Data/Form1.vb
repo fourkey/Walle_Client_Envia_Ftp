@@ -1,16 +1,19 @@
 ﻿Public Class Frm_Principal
 
     'CRIPTOGRAFIA
-    Public Shared UserCript As String = My.Settings.CriptUser
-    Public Shared PassCript As String = My.Settings.CriptPass
+    Public Shared UserCript As String
+    Public Shared PassCript As String
+    Public Shared CaminhoFtp As String
     Public Shared ClientLocation As String = ""
     Public Shared ClientFourkey As String = ""
     Public Shared ClientCod As String = ""
     Public ChaveFechar As Boolean = False
     Public ChaveDesligar As Boolean = False
 
+
     Dim Funcao As New Funcoes
     Public ListaDeArquivosNomes As New ArrayList
+    Dim Pub As New Util
 
     Private Sub tb_password_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_password.KeyDown
 
@@ -52,6 +55,15 @@
 
     Private Sub Frm_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Me.ShowInTaskbar = False
+        Me.WindowState = FormWindowState.Minimized
+
+        Pub.Escreve_Log("Teste")
+
+        UserCript = Pub.Decifra(My.Settings.CriptUser)
+        PassCript = Pub.Decifra(My.Settings.CriptPass)
+        CaminhoFtp = Pub.Decifra(My.Settings.PathFtp)
+
         ClientFourkey = Funcao.GetUserClient()
         ClientLocation = Funcao.GetLocationPath()
         ClientCod = Funcao.GetUserCod
@@ -60,14 +72,15 @@
 
         Funcao.ExcluirArquivosProcessadosAntigos(ClientLocation)
 
-        Me.ShowInTaskbar = False
-        Me.WindowState = FormWindowState.Minimized
-
         'Funcao.SubirArquivo()
 
         t_loop.Enabled = True
         ChaveDesligar = False
-        Funcao.SubirArquivo()
+        If Pub.VerificaConexaoFtp() = True Then
+            Funcao.SubirArquivo()
+        Else
+            Pub.Escreve_Log("WARNING - (Frm_Principal.Load) - Sem conexão com o FTP para subir os arquivos necessários.")
+        End If
 
     End Sub
 
@@ -75,11 +88,15 @@
 
         Try
 
-            Funcao.SubirArquivo()
+            If Pub.VerificaConexaoFtp() = True Then
+                Funcao.SubirArquivo()
+            Else
+                Pub.Escreve_Log("WARNING - (Frm_Principal.Load) - Sem conexão com o FTP para subir os arquivos necessários.")
+            End If
 
         Catch ex As Exception
 
-
+            Pub.Escreve_Log("CATCH - (Frm_Principal.t_loop_Tick) - Erro: " & ex.Message)
 
         End Try
 
