@@ -58,7 +58,7 @@
         Me.ShowInTaskbar = False
         Me.WindowState = FormWindowState.Minimized
 
-        Pub.Escreve_Log("Teste")
+        Pub.Escreve_Log("Iniciando aplicativo Walle_Client_Data")
 
         UserCript = Pub.Decifra(My.Settings.CriptUser)
         PassCript = Pub.Decifra(My.Settings.CriptPass)
