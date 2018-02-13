@@ -14,5 +14,8 @@
     <Setting Name="KeyGetUser" Type="System.String" Scope="User">
       <Value Profile="(Default)">tWTlAEySXoI=</Value>
     </Setting>
+    <Setting Name="Location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Fourkey\Walle\Walle_Client_Data.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

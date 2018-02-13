@@ -21,6 +21,8 @@ Public Class Funcoes
         Dim DataAgora As Date
         Dim PrimeiroCaminho As String = ""
 
+        Pub.Escreve_Log("Verificando arquivos pendentes...")
+
         ArrayDeArquivosPendentes = LerPasta()
 
         For i As Integer = 0 To ArrayDeArquivosPendentes.Count - 1
@@ -44,29 +46,13 @@ Public Class Funcoes
 
                 Catch ex As Exception
 
-                    Local = System.Reflection.Assembly.GetExecutingAssembly().Location
-
-                    Local = Local.Replace("Walle_Client_Data.exe", "")
-
-                    fluxoTexto = New IO.StreamWriter(Local & "\Logs\" _
-                                                     & Format(Now, "yyyy-MM-dd-HH-mm-ss.txt"))
-
-                    fluxoTexto.WriteLine(ex.Message)
-                    fluxoTexto.Close()
+                    Pub.Escreve_Log("Erro de execução:" & ex.Message)
 
                 End Try
 
             Catch ex As Exception
 
-                Local = System.Reflection.Assembly.GetExecutingAssembly().Location
-
-                Local = Local.Replace("Walle_Client_Data.exe", "")
-
-                fluxoTexto = New IO.StreamWriter(Local & "\Logs\" _
-                                                 & Format(Now, "yyyy-MM-dd-HH-mm-ss.txt"))
-
-                fluxoTexto.WriteLine(ex.Message)
-                fluxoTexto.Close()
+                Pub.Escreve_Log("Erro de execução:" & ex.Message)
 
                 Exit For
 
@@ -93,19 +79,25 @@ Public Class Funcoes
 
             Try
 
+                Pub.Escreve_Log("Fazendo upload do arquivo " & PrimeiroCaminho)
+
                 UploadFile(PrimeiroCaminho, Caminho, Frm_Principal.UserCript, Frm_Principal.PassCript)
 
                 My.Computer.FileSystem.DeleteFile(PrimeiroCaminho, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
 
             Catch ex As Exception
 
-
+                Pub.Escreve_Log("Erro de execução:" & ex.Message)
 
             End Try
 
         End If
 
+        Pub.Escreve_Log("Total de arquivos enviados: " & Frm_Principal.ListaDeArquivosNomes.Count().ToString)
+
         Frm_Principal.ListaDeArquivosNomes.Clear()
+
+
 
     End Sub
 
@@ -164,11 +156,13 @@ Public Class Funcoes
 
     Public Function GetLocationPath() As String
 
-        Dim LocationString As String = System.Reflection.Assembly.GetExecutingAssembly().Location & "LOCATION.txt"
+        Dim LocationString As String = My.Settings.Location & "LOCATION.txt"
         Dim fluxoTexto As IO.StreamReader
         Dim linhaTexto As String = ""
 
         LocationString = LocationString.Replace("Walle_Client_Data.exe", "")
+
+        Frm_Principal.PathEXE = My.Settings.Location.Replace("Walle_Client_Data.exe", "")
 
         If IO.File.Exists(LocationString) Then
 
@@ -286,7 +280,7 @@ Public Class Funcoes
         Dim fluxoTexto As IO.StreamReader
         Dim linhaTexto As String
         Dim Cliente As String = ""
-        Dim USERCLIENT As String = System.Reflection.Assembly.GetExecutingAssembly().Location & "USERCLIENT.txt"
+        Dim USERCLIENT As String = Frm_Principal.PathEXE & "USERCLIENT.txt"
 
         USERCLIENT = USERCLIENT.Replace("Walle_Client_Data.exe", "")
 
@@ -339,7 +333,7 @@ Public Class Funcoes
         Dim fluxoTexto As IO.StreamReader
         Dim linhaTexto As String = ""
         Dim Cliente As String = ""
-        Dim USERCLIENT As String = System.Reflection.Assembly.GetExecutingAssembly().Location & "BIN.txt"
+        Dim USERCLIENT As String = Frm_Principal.PathEXE & "BIN.txt"
 
         USERCLIENT = USERCLIENT.Replace("Walle_Client_Data.exe", "")
 

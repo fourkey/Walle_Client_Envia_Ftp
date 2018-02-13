@@ -21,6 +21,8 @@ Public Class Util
     ''' <returns></returns>
     Public Function VerificaConexaoFtp() As Boolean
 
+        Escreve_Log("Verificando conexao com o FTP")
+
         If My.Computer.Network.Ping(Replace(Decifra(My.Settings.PathFtp), "ftp://", "")) Then
             Return True
         Else
@@ -31,7 +33,7 @@ Public Class Util
 
     Public Sub Escreve_Log(ByVal Texto As String)
 
-        Dim LogArquivo As String = Frm_Principal.ClientLocation & "\Logs\" & Format(Now, "yyyy_MM_dd") & "_Admin_Walle" & ContLog & ".txt"
+        Dim LogArquivo As String = Frm_Principal.PathEXE & "\Logs\" & Format(Now, "yyyy_MM_dd") & "_Walle_Client_Data_" & ContLog & ".txt"
 
         If File.Exists(LogArquivo) = True Then
 
@@ -49,8 +51,6 @@ Public Class Util
 
         fluxoTexto = New IO.StreamWriter(LogArquivo, True)
         fluxoTexto.WriteLine("")
-        fluxoTexto.WriteLine("--------------------------------------------------------------")
-
         fluxoTexto.WriteLine(Format(Now, "yyyy-MM-dd HH:mm:ss") & " - " & Texto)
 
         fluxoTexto.Close()

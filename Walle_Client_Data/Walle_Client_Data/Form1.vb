@@ -9,6 +9,7 @@
     Public Shared ClientCod As String = ""
     Public ChaveFechar As Boolean = False
     Public ChaveDesligar As Boolean = False
+    Public Shared PathEXE As String = ""
 
 
     Dim Funcao As New Funcoes
@@ -58,15 +59,17 @@
         Me.ShowInTaskbar = False
         Me.WindowState = FormWindowState.Minimized
 
+        ClientLocation = Funcao.GetLocationPath()
+        ClientFourkey = Funcao.GetUserClient()
+        ClientCod = Funcao.GetUserCod
+
         Pub.Escreve_Log("Iniciando aplicativo Walle_Client_Data")
 
         UserCript = Pub.Decifra(My.Settings.CriptUser)
         PassCript = Pub.Decifra(My.Settings.CriptPass)
         CaminhoFtp = Pub.Decifra(My.Settings.PathFtp)
 
-        ClientFourkey = Funcao.GetUserClient()
-        ClientLocation = Funcao.GetLocationPath()
-        ClientCod = Funcao.GetUserCod
+
 
         Funcao.LerPasta()
 
@@ -87,6 +90,7 @@
     Private Sub t_loop_Tick(sender As Object, e As EventArgs) Handles t_loop.Tick
 
         Try
+
 
             If Pub.VerificaConexaoFtp() = True Then
                 Funcao.SubirArquivo()
